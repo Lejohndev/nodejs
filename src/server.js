@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import configjson from "./config/config.json"
 import viewEngine from "./config/viewEngine";
 import initwebRoutes from './route/web';
 import connectDB from './config/connectDB';
