@@ -1,7 +1,10 @@
 'use strict';
+
+const sequelize = require("sequelize");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('User', {
+    await queryInterface.createTable('Users', {
 
       id: {
         allowNull: false,
@@ -24,13 +27,19 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
+      phonenumber: {
+        type: Sequelize.STRING
+      },
       gender: {
         type: Sequelize.BOOLEAN
       },
-      typeRole: {
+      RoleId: {
         type: Sequelize.STRING
       },
-      keyRole: {
+      postitionId: {
+        type: Sequelize.STRING
+      },
+      image: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -44,6 +53,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('User');
+    await queryInterface.dropTable('Users');
   }
 };
