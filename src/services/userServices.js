@@ -70,9 +70,31 @@ let checkUserEmail = (userEmail) => {
         }
     })
 }
+let GetAllUser = (userId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let users = '';
+            if (userId === 'ALL') {
+                users = await db.Users.findAll({
+
+                })
+
+            }
+            if (userId && userId !== 'ALL') {
+                users = await db.Users.findOne({
+                    where: { id: userId }
+                })
+            }
+            resolve(users)
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 
 
 
 module.exports = {
     handleUserLogin: handleUserLogin,
+    GetAllUser: GetAllUser
 }
