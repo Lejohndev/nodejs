@@ -83,7 +83,7 @@ let updateUserData = (data) => {
                 users.lastName = data.lastName;
                 users.address = data.address;
 
-                await users.save()
+                await users.save();
                 let allUser = await db.Users.findAll();
                 resolve(allUser);
             } else {
@@ -103,14 +103,16 @@ let deleteUserbyId = (userId) => {
             })
             if (user) {
                 await user.destroy();
+                resolve("User deleted successfully");
+            } else {
+                resolve("User not found");
             }
-            resolve();
         } catch (e) {
             reject(e);
         }
     })
-
 }
+
 module.exports = {
     createNewUser: createNewUser,
     getAllUsers: getAllUsers,

@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import configjson from "./config/config.json"
 import viewEngine from "./config/viewEngine";
 import initwebRoutes from './route/web';
 import connectDB from './config/connectDB';
@@ -11,7 +10,6 @@ app.use(cors({ credentials: true, origin: true }));
 //config app
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
-
 viewEngine(app);
 initwebRoutes(app);
 connectDB();
