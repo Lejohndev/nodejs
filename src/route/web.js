@@ -1,7 +1,7 @@
 import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
-import doctorController from "../controllers/doctorController"
+// import doctorController from "../controllers/doctorController"
 let router = express.Router();
 
 
@@ -16,7 +16,7 @@ let initwebRoutes = (app) => {
     router.get('/delete-crud', homeController.deleteCRUD);
     router.post('/api/login', userController.handleLogin);
     router.get('/api/get-all-user', userController.HandleGetAllUser);
-    router.get('/api/top-doctor-home', userController.getTopDoctorHome)
+    router.post('/api/chatbox')
     return app.use("/", router);
 }
 module.exports = initwebRoutes;

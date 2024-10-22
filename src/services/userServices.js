@@ -11,8 +11,8 @@ let handleUserLogin = (email, password) => {
             if (isExist) {
                 //user already exist
                 let user = await db.Users.findOne({
-                    attributes: ['email', 'roleId', 'password'],
-                    where: { email: email },
+                    attributes: ['email', 'roleId', 'password', 'firstName','lastName'],
+                    where: { email: email},
                     raw: true,
 
                 });
@@ -90,6 +90,9 @@ let GetAllUser = (userId) => {
             reject(e)
         }
     })
+}
+let GetmesUser =(UserchatId)=>{
+
 }
 
 
